@@ -1,0 +1,37 @@
+<% if user_signed_in? %>
+<div class="ui container">
+  
+
+  <table class="ui striped table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Cargo</th>
+      <th>Tipo de Trabajo</th>
+      <th>Email</th>
+      <th>Fecha de registro</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.position %></td>
+          <td><%= user.work %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at.to_s.chomp('UTC') %></td>
+          
+        </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+<%end%>
+
+
+</div>

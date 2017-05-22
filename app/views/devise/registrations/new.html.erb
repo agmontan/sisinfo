@@ -1,0 +1,79 @@
+<div class="ui container">
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html:{class: 'ui form'}) do |f| %>
+  <%= devise_error_messages! %>
+
+  
+  <div class="two fields">
+    <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name, autofocus: true %>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+        <%= f.label :id %><br />
+        <%= f.text_field :id, autofocus: true %>
+    </div>
+    <div class="field">
+        <%= f.label :Fecha_de_Nacimiento %><br />
+        <%= f.date_select :birthdate, :start_year=>1970,:end_year=>Time.now.year %>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+        <%= f.label :Cargo %><br />
+        <%= f.select :work,["Jefe","Auxiliar"],{}, autofocus: true %>
+    </div>
+    <div class="field">
+        <%= f.label :Tipo_de_Trabajador %><br />
+        <%= f.select :work,["Hour","Month"],{}, autofocus: true %>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <%= f.label :state %><br />
+      <%= f.text_field :state, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :country %><br />
+      <%= f.text_field :country, autofocus: true %>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :phone %><br />
+      <%= f.text_field :phone, autofocus: true %>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", :class => "ui green submit button" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div class="ui container">
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <strong>Empleado:</strong>
+		  <%= @voucher.user.first_name %> <%= @voucher.user.last_name %> 
+		</p>
+
+		<p>
+		  <strong>Cargo:</strong>
+		  <%= @voucher.user.position %> 
+		</p>
+
+		<p>
+		  <strong>Tipo de empleado:</strong>
+		  <%= @voucher.user.work %> 
+		</p>
+
+		<p>
+		  <strong>Salary:</strong>
+		  <%= @voucher.salary %>
+		</p>
+
+		<p>
+		  <strong>Description:</strong>
+		  <%= @voucher.description %>
+		</p>
+</div>
+</body>
+</html>

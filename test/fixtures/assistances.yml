@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  hours_worked: MyString
+  : 1
+  permission: MyString
+  : 1
+  month: MyString
+  : 1
+
+two:
+  user: two
+  hours_worked: MyString
+  : 1
+  permission: MyString
+  : 1
+  month: MyString
+  : 1

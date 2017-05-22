@@ -1,0 +1,36 @@
+
+<div class="ui container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Empleado:</strong>
+  <%= @voucher.user.first_name %> <%= @voucher.user.last_name %> 
+</p>
+
+<p>
+  <strong>Cargo:</strong>
+  <%= @voucher.user.position %> 
+</p>
+
+<p>
+  <strong>Tipo de empleado:</strong>
+  <%= @voucher.user.work %> 
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @voucher.salary %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @voucher.description %>
+</p>
+
+<p>
+  <strong>Creacion:</strong>
+  <%= @voucher.created_at %>
+</p>
+<%= link_to 'Edit', edit_voucher_path(@voucher) %> |
+<%= link_to 'Back', vouchers_path %>
+</div>

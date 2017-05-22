@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @assistance.user.first_name %>
+</p>
+
+<p>
+  <strong>Hours worked:</strong>
+  <%= @assistance.hours_worked %>
+</p>
+
+
+
+<p>
+  <strong>Permission:</strong>
+  <%= @assistance.permission %>
+</p>
+
+
+
+<p>
+  <strong>Month:</strong>
+  <%= @assistance.month %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_assistance_path(@assistance) %> |
+<%= link_to 'Back', assistances_path %>

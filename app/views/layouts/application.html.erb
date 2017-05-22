@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AiSca</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+
+   
+  
+  </head>
+
+  <body>
+
+<!-- Following Menu -->
+<div class="ui attached stackable menu">
+  <div class="ui container">
+    <a class="active item" href="/welcome/index">Inicio</a>
+    <% if user_signed_in?%>
+    <a class="item" href="/users">Empleados</a>
+    <a class="item" href="/vouchers" >Papeletas</a>
+    <a class="item" href="/assistances">Asistencias</a>
+    <%end%>
+    <div class="right menu">
+
+     
+      <% if user_signed_in?%>
+      <div class="item">
+                <a class="user icon" href="/users/edit"> <%= current_user.email %></a>
+              </div>
+      <div class="item">
+        <%= link_to "Cerrar", destroy_user_session_path, method: :delete, :class => 'ui primary button'%>
+      </div>
+      <%else%>
+       <div class="item">
+      	 <a class="user icon" href="/users/sign_in">Log In</a>
+      </div>
+      <div class="item">
+      	 <a class="user icon" href="/users/sign_up">Sign up</a>
+      </div>
+      <%end%>
+    </div>
+  </div>
+</div>
+	
+
+
+    <%= yield %>
+    <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+  </body>
+</html>
