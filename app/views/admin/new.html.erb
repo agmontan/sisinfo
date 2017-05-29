@@ -1,6 +1,6 @@
 <div class="ui form container ">
         <div class="ui   segment">
-    <%if current_user.has_role? :Administrador%>           
+    <%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>           
           <div class="ui header">
                Nuevo usuario
                <br>
@@ -43,7 +43,7 @@
                        <div class="menu">
                         <div class="item" value= "Administrador" >Administrador</div>
                         <div class="item" value= "Modificador" >Modificador</div>
-                        <div class="item" value= "Visitante" >Visitante</div>
+                        <div class="item" value= "Empleado" >Empleado</div>
                     </div>
                   </div>
                 </div>

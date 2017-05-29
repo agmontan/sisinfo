@@ -64,9 +64,9 @@ class AdminController < ApplicationController
 
   def addRoleToUser(user,role)
     if(role =="administrador" )
-      user.add_role :Administrador
+      user.add_role :Super_usuario
       elsif (role =="modificador" )
-        user.add_role :Modificador
+        user.add_role :Administrador
       else
         user.add_role :Empleado
     end     

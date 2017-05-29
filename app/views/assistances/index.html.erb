@@ -1,7 +1,10 @@
+
+<%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
 <h2>Importar Asistencias</h2>
 <%=form_tag import_assistances_path, multipart: true do%>
 <%= file_field_tag :file%>
-<%= submit_tag "Import"%>
+<%= submit_tag "Importar",  data: { confirm: 'Esta seguro?' }%>
+<%end%>
 <%end%>
 <div class="ui container">
 <p id="notice"><%= notice %></p>
@@ -20,6 +23,7 @@
   </thead>
 
   <tbody>
+    <%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
     <% @assistances.each do |assistance| %>
       <tr>
         <td><%= assistance.user.first_name %> <%= assistance.user.last_name %></td>
@@ -31,11 +35,28 @@
         <td><%= link_to 'Destroy', assistance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <%end%>
+    <%if current_user.has_role? :Empleado%>
+    <% current_user.assistances.each do |assistance| %>
+      <tr>
+        <td><%= assistance.user.first_name %> <%= assistance.user.last_name %></td>
+        <td><%= assistance.hours_worked %></td>
+        <td><%= assistance.permission %></td>
+        <td><%= assistance.month %></td>
+        <td><%= link_to 'Show', assistance %></td>
+        
+      </tr>
+    <% end %>
+    <%end%>
+
   </tbody>
 </table>
 
 <br>
 
+<%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
+
 <%= link_to 'New Assistance', new_assistance_path %>
+<%end%>
 </div>
 

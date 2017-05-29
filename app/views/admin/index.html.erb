@@ -1,6 +1,8 @@
 <% if user_signed_in? %>
+<%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
 <div class="ui container">
   
+
 
   <table class="ui striped table">
   <thead>
@@ -31,6 +33,7 @@
     <% end %>
   </tbody>
 </table>
+<%end%>
 <%end%>
 
 

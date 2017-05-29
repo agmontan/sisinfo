@@ -13,4 +13,4 @@
 	user.first_name = "Pepito"	
 	user.last_name = "Grillo"
 	user.save
-	user.add_role :Administrador
+	user.add_role :Super_usuario

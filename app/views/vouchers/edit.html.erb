@@ -1,4 +1,4 @@
-
+<%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
 <div class="ui container">
 <h1>Editing Voucher</h1>
 
@@ -8,3 +8,5 @@
 <%= link_to 'Back', vouchers_path %>
 
 </div>
+
+<%end%>

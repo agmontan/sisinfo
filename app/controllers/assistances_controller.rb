@@ -11,7 +11,7 @@ class AssistancesController < ApplicationController
   def import
     Assistance.import(params[:file])
     calculate_voucher
-    redirect_to root_url, notice: "Asistencias Importadas."
+    redirect_to root_url, notice: "Se ha cargado el archivo de asistencias correctamente"
 
      
   end 

@@ -16,7 +16,9 @@
   </thead>
 
   <tbody>
-    <% @vouchers.each do |voucher| %>
+    
+      <%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
+        <% @vouchers.each do |voucher| %>
       <tr>
         <td><%= voucher.user.first_name %> <%= voucher.user.last_name %></td>
         <td><%= voucher.salary %></td>
@@ -24,15 +26,28 @@
         <td><%= voucher.created_at %></td>
         <td><%= link_to 'Show', voucher %></td>
         <td><a href="/vouchers/<%=voucher.id%>.pdf">Imprimir</a></td>
-        <td><%= link_to 'Edit', edit_voucher_path(voucher) %></td>
-        <td><%= link_to 'Destroy', voucher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_voucher_path(voucher) %></td>
+        <td><%= link_to 'Eliminar', voucher, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>
+      <%end%>
+      <%end%>
+      <%if current_user.has_role? :Empleado%>
+        <% current_user.vouchers.each do |voucher| %>
+      <tr>
+        <td><%= voucher.user.first_name %> <%= voucher.user.last_name %></td>
+        <td><%= voucher.salary %></td>
+        <td><%= voucher.description %></td>
+        <td><%= voucher.created_at %></td>
+        <td><%= link_to 'Show', voucher %></td>
+      </tr>
+      <%end%>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
 <%= link_to 'New Voucher', new_voucher_path %>
+<%end%>
 
 </div>

@@ -31,10 +31,11 @@
   <div class="ui container">
     <a class="active item" href="/welcome/index">Inicio</a>
     <% if user_signed_in?%>
-    <a class="item" href="/user">Empleados</a>
+   
     <a class="item" href="/vouchers" >Papeletas</a>
     <a class="item" href="/assistances">Asistencias</a>
-     <%if current_user.has_role? :Administrador%>
+     <%if current_user.has_role? :Administrador or current_user.has_role? :Super_usuario%>
+         <a class="item" href="/user">Empleados</a>
           <a class="green item" href="/user/new"><i class="add user icon"></i>Crear Nuevo Usuario</a>
     <%end%>
     <%end%>
@@ -51,9 +52,6 @@
       <%else%>
        <div class="item">
       	 <a class="user icon" href="/users/sign_in">Log In</a>
-      </div>
-      <div class="item">
-      	 <a class="user icon" href="/users/sign_up">Sign up</a>
       </div>
       <%end%>
     </div>
