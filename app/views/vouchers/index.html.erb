@@ -3,8 +3,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Papeletas de Pago</h1>
-
-<td><%= link_to 'Generar Papeletas', {action: :generate_voucher}, method: :post, data: { confirm: 'Are you sure?' }, class: "ui green button"%></td>
+<%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
+<td><%= link_to 'Generar Papeletas', {action: :generate_voucher}, method: :post, data: { confirm: 'Estas Seguro?' }, class: "ui green button"%></td>
+<%end%>
 
 <table class="ui compact celled definition table" >
   <thead>

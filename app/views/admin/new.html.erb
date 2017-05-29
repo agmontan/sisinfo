@@ -51,8 +51,10 @@
                        <i class="dropdown icon"></i>
                        <div class="default text">Roles</div>
                        <div class="menu">
+                        <%if current_user.has_role? :Super_usuario%> 
+                        <div class="item" value= "Super_usuario" >Super Usuario</div>
+                        <%end%>
                         <div class="item" value= "Administrador" >Administrador</div>
-                        <div class="item" value= "Modificador" >Modificador</div>
                         <div class="item" value= "Empleado" >Empleado</div>
                     </div>
                   </div>
