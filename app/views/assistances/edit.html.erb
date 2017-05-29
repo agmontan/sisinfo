@@ -1,9 +1,12 @@
 <%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
-<h1>Editing Assistance</h1>
+<div class="ui containr">
+<h1>Editar Asistencia</h1>
 
 <%= render 'form', assistance: @assistance %>
 
-<%= link_to 'Show', @assistance %> |
-<%= link_to 'Back', assistances_path %>
+<%= link_to 'Ver', @assistance %> |
+<%= link_to 'Atras', assistances_path %>
 
 <%end%>
+
+</div>

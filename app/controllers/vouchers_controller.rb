@@ -23,7 +23,7 @@ class VouchersController < ApplicationController
   end
 
   def generate_voucher
-     calculate_voucher
+     calculate_voucher, notice: "Se han generado las papeletas de pago de los empleados correctamente"
   end
 
   # GET /vouchers/1/edit
@@ -37,7 +37,7 @@ class VouchersController < ApplicationController
 
     respond_to do |format|
       if @voucher.save
-        format.html { redirect_to @voucher, notice: 'Voucher was successfully created.' }
+        format.html { redirect_to @voucher, notice: 'Papeleta a sido creada correctamente.' }
         format.json { render :show, status: :created, location: @voucher }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class VouchersController < ApplicationController
   def update
     respond_to do |format|
       if @voucher.update(voucher_params)
-        format.html { redirect_to @voucher, notice: 'Voucher was successfully updated.' }
+        format.html { redirect_to @voucher, notice: 'Papeleta a sido editada correctamente.' }
         format.json { render :show, status: :ok, location: @voucher }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class VouchersController < ApplicationController
   def destroy
     @voucher.destroy
     respond_to do |format|
-      format.html { redirect_to vouchers_url, notice: 'Voucher was successfully destroyed.' }
+      format.html { redirect_to vouchers_url, notice: 'Papeleta a sido eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

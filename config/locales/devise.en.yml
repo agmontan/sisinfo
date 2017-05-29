@@ -3,19 +3,19 @@
 en:
   devise:
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      confirmed: "Su dirección de correo electrónico ha sido confirmada correctamente."
+      send_instructions: "Recibirá un correo electrónico con instrucciones para confirmar su dirección de correo electrónico en unos minutos."
+      send_paranoid_instructions: "Si su dirección de correo electrónico existe en nuestra base de datos, recibirá un correo electrónico con instrucciones para confirmar su dirección de correo electrónico en unos minutos."
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
+      already_authenticated: "Ya has iniciado sesión."
+      inactive: "Tu cuenta aún no está activada."
       invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
+      locked: "Tu cuenta esta bloqueada."
+      last_attempt: "Tienes un intento más antes de que tu cuenta esté bloqueada."
       not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "You have to confirm your email address before continuing."
+      timeout: "Su sesión ha caducado. Vuelva a iniciar sesión para continuar."
+      unauthenticated: "Debe iniciar sesión o registrarse antes de continuar."
+      unconfirmed: "Debe confirmar su dirección de correo electrónico antes de continuar."
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
@@ -45,9 +45,9 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Your account has been updated successfully."
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      signed_in: "Firmado con éxito."
+      signed_out: "Se ha cerrado correctamente."
+      already_signed_out: "Se ha cerrado correctamente."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."

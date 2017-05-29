@@ -30,9 +30,9 @@
         <td><%= assistance.hours_worked %></td>
         <td><%= assistance.permission %></td>
         <td><%= assistance.month %></td>
-        <td><%= link_to 'Show', assistance %></td>
-        <td><%= link_to 'Edit', edit_assistance_path(assistance) %></td>
-        <td><%= link_to 'Destroy', assistance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', assistance %></td>
+        <td><%= link_to 'Editar', edit_assistance_path(assistance) %></td>
+        <td><%= link_to 'Eliminar', assistance, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
       </tr>
     <% end %>
     <%end%>
@@ -43,7 +43,7 @@
         <td><%= assistance.hours_worked %></td>
         <td><%= assistance.permission %></td>
         <td><%= assistance.month %></td>
-        <td><%= link_to 'Show', assistance %></td>
+        <td><%= link_to 'Ver', assistance %></td>
         
       </tr>
     <% end %>
@@ -56,7 +56,7 @@
 
 <%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
 
-<%= link_to 'New Assistance', new_assistance_path %>
+<%= link_to 'Nueva Asistencia', new_assistance_path %>
 <%end%>
 </div>
 

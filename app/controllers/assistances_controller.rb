@@ -36,7 +36,7 @@ class AssistancesController < ApplicationController
 
     respond_to do |format|
       if @assistance.save
-        format.html { redirect_to @assistance, notice: 'Assistance was successfully created.' }
+        format.html { redirect_to @assistance, notice: 'La Asistencia a sido creada correctamente' }
         format.json { render :show, status: :created, location: @assistance }
         
       else
@@ -52,7 +52,7 @@ class AssistancesController < ApplicationController
   def update
     respond_to do |format|
       if @assistance.update(assistance_params)
-        format.html { redirect_to @assistance, notice: 'Assistance was successfully updated.' }
+        format.html { redirect_to @assistance, notice: 'La Asistencia a sido editada correctamente' }
         format.json { render :show, status: :ok, location: @assistance }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class AssistancesController < ApplicationController
   def destroy
     @assistance.destroy
     respond_to do |format|
-      format.html { redirect_to assistances_url, notice: 'Assistance was successfully destroyed.' }
+      format.html { redirect_to assistances_url, notice: 'La Asistencia a sido eliminada correctamente' }
       format.json { head :no_content }
     end
   end

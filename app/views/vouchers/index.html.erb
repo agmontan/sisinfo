@@ -41,7 +41,7 @@
         <td><%= voucher.salary %></td>
         <td><%= voucher.description %></td>
         <td><%= voucher.created_at %></td>
-        <td><%= link_to 'Show', voucher %></td>
+        <td><%= link_to 'Ver', voucher %></td>
       </tr>
       <%end%>
     <% end %>
@@ -50,7 +50,7 @@
 
 <br>
 <%if current_user.has_role? :Super_usuario or current_user.has_role? :Administrador %>
-<%= link_to 'New Voucher', new_voucher_path %>
+<%= link_to 'Nueva Papeleta', new_voucher_path %>
 <%end%>
 
 </div>
