@@ -9,5 +9,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'welcome#index'
 
-  get '/users'=>'admin#users'
+  #get '/users'=>'admin#index'
+   get '/lock_unlock' => 'admin#lock_unlock'
+  get '/user' => 'admin#index'
+  get '/user/new' => 'admin#new'
+  get '/user/:id/edit_password' => 'admin#edit_password'
+  post '/user/:id/update_password' => 'admin#update_password'
+  post '/user' => 'admin#create'
 end

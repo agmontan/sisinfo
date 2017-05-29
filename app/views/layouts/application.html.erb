@@ -11,9 +11,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
 
+ <script type="text/javascript">
+         $(document).ready(function(){
+             $('.login').click(function(){
+                 $('#login-modal').modal({blurring: true}).modal('show');
+             });
+              $('.ui.dropdown').dropdown();
+         });
+  </script>
    
   
   </head>
+
 
   <body>
 
@@ -22,9 +31,12 @@
   <div class="ui container">
     <a class="active item" href="/welcome/index">Inicio</a>
     <% if user_signed_in?%>
-    <a class="item" href="/users">Empleados</a>
+    <a class="item" href="/user">Empleados</a>
     <a class="item" href="/vouchers" >Papeletas</a>
     <a class="item" href="/assistances">Asistencias</a>
+     <%if current_user.has_role? :Administrador%>
+          <a class="green item" href="/user/new"><i class="add user icon"></i>Crear Nuevo Usuario</a>
+    <%end%>
     <%end%>
     <div class="right menu">
 

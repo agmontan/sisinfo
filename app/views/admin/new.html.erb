@@ -1,0 +1,75 @@
+<div class="ui form container ">
+        <div class="ui   segment">
+    <%if current_user.has_role? :Administrador%>           
+          <div class="ui header">
+               Nuevo usuario
+               <br>
+               <%= notice %>
+               <br>
+               <% if @user.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@user.errors.count, "error") %>:</h2>
+
+                  <ul>
+                  <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+          </div>
+          <form action="/user" method="post">
+            <div class="two fields">
+                <div class="field">
+                  <label>Nombres</label>
+                  <input  name="user[first_name]" placeholder="Nombre completo" type="text" required>
+                </div>
+                <div class="field">
+                  <label>Apellidos</label>
+                  <input type="text" name="user[last_name]" placeholder="Apellidos completos" required>
+                </div>                                 
+            </div>
+            <div class="two fields">
+                <div class="field">
+                  <label>Email</label>
+                  <input  name="user[email]" placeholder="Correo electronico" type="text" required>
+                </div>
+                <div class="field">
+                  <label>Rol del usuario</label>
+                   <div class="ui selection dropdown">
+                       <input type="hidden" name="user[role]">
+                       <i class="dropdown icon"></i>
+                       <div class="default text">Roles</div>
+                       <div class="menu">
+                        <div class="item" value= "Administrador" >Administrador</div>
+                        <div class="item" value= "Modificador" >Modificador</div>
+                        <div class="item" value= "Visitante" >Visitante</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="two fields">
+                <div class="field">
+                  <label>Contraseña</label>
+                  <i>(Debe tener una letra en mayuscula, minuscula, numemro y caracter especial.Tamaño minimo 6)</i>
+                  <input type="password" name="user[password]" placeholder="Contraseña" required>
+                </div>
+                <div class="field">
+                  <label>Confirmaticion de contraseña</label>
+                  <br>
+                  <input name="user[password_confirmation]" placeholder="Confirmacion de contraseña" type="password" required>
+                </div> 
+              </div>                                          
+            <div class="ui center aligned basic segment">
+              <button type="input" class="ui green button"><i class="ui add icon"></i>Crear usuario</button>
+            </div>
+            <br> 
+          </form>
+            <%else%>
+              <h1>No deberias estar aqui</h1>   
+            <%end%>
+        </div>
+      </div>
+
+<br>
+<br>
