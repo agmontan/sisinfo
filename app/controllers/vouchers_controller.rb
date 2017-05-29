@@ -1,6 +1,6 @@
 class VouchersController < ApplicationController
   before_action :set_voucher, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /vouchers
   # GET /vouchers.json
   def index
@@ -20,6 +20,10 @@ class VouchersController < ApplicationController
   # GET /vouchers/new
   def new
     @voucher = Voucher.new
+  end
+
+  def generate_voucher
+     calculate_voucher
   end
 
   # GET /vouchers/1/edit
@@ -77,5 +81,11 @@ class VouchersController < ApplicationController
       params.require(:voucher).permit(:user_id, :salary, :description)
     end
 
+     def calculate_voucher
+      info = Assistance.all
+      info.each do |one|
+      Voucher.create(user_id: one.user_id, salary: one.calculate(one), description: "para este mes" )
+      end
+    end
    
 end

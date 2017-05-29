@@ -10,7 +10,6 @@ class AssistancesController < ApplicationController
 
   def import
     Assistance.import(params[:file])
-    calculate_voucher
     redirect_to root_url, notice: "Se ha cargado el archivo de asistencias correctamente"
 
      
@@ -83,10 +82,5 @@ class AssistancesController < ApplicationController
       params.require(:assistance).permit(:user_id, :hours_worked,  :permission, :month)
     end
 
-     def calculate_voucher
-      info = Assistance.all
-      info.each do |one|
-        Voucher.create(user_id: one.user_id, salary: one.calculate(one), description: "para este mes" )
-      end
-    end
+    
 end

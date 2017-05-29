@@ -4,6 +4,8 @@
 
 <h1>Papeletas de Pago</h1>
 
+<td><%= link_to 'Generar Papeletas', {action: :generate_voucher}, method: :post, data: { confirm: 'Are you sure?' }, class: "ui green button"%></td>
+
 <table class="ui compact celled definition table" >
   <thead>
     <tr>

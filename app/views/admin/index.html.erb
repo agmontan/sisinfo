@@ -7,7 +7,7 @@
   <table class="ui striped table">
   <thead>
     <tr>
-      <th>Id</th>
+      <th>Ci</th>
       <th>Nombres</th>
       <th>Apellidos</th>
       <th>Cargo</th>
@@ -20,14 +20,29 @@
   <tbody>
     <% @users.each do |user| %>
         <tr>
-          <td><%= user.id %></td>
+          <td><%= user.ci %></td>
           <td><%= user.first_name %></td>
           <td><%= user.last_name %></td>
           <td><%= user.position %></td>
           <td><%= user.work %></td>
           <td><%= user.email %></td>
           <td><%= user.created_at.to_s.chomp('UTC') %></td>
-          
+          <td><a class="circular ui icon button" data-tooltip="Editar Usuario" href="/user/<%=user.id%>/edit_password"></i></a></td>
+          <td>
+              <%if user.id != current_user.id%>
+                
+              <form action="/lock_unlock" method="get">
+                <input type="hidden" name="id" value="<%=user.id%>">
+                <%if user.locked_at==nil%>
+                  <input type="hidden" name="status" value ="true">
+                   <button type="input" class="ui red button">Dar de Baja</button>
+                 <%else%>
+                  <input type="hidden" name="status" value ="false">
+                   <button type="input" class="ui green button">Reincorporar</button>
+                <%end%>
+              </form>
+              <%end%>
+          </td>
         </tr>
       
     <% end %>

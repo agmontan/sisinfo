@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   resources :assistances do
   	collection {post :import}
   end
-  resources :vouchers
+  resources :vouchers 
+  post '/vouchers/generate_voucher' => 'vouchers#generate_voucher'
   get 'welcome/index'
 
   devise_for :users

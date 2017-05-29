@@ -59,7 +59,7 @@ class AdminController < ApplicationController
 
 
   def user_params
-	params.require(:user).permit(:first_name,:last_name,:email,:password,:password_confirmation,:state,:country,:phone,:position,:birthdate,:work)
+	params.require(:user).permit(:first_name,:last_name,:email,:password,:password_confirmation,:state,:country,:phone,:position,:birthdate,:work, :ci)
   end
 
   def addRoleToUser(user,role)
